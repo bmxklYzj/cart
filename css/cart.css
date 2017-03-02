@@ -1,0 +1,85 @@
+/* 浏览器基准值font-size为16, 1rem=16,.5em=8，以此类推 */
+/* 全局mixin方法 begin */
+/* 单行文本截断 */
+/* 全局mixin方法 end */
+body {
+  background-color: #eee;
+}
+.header {
+  line-height: 2.5rem;
+  background-color: #fff;
+  text-align: center;
+  position: relative;
+}
+.header-return {
+  display: inline-block;
+  width: .7rem;
+  height: .7rem;
+  border-left: 2px solid #000;
+  border-bottom: 2px solid #000;
+  transform: rotate(45deg);
+  position: absolute;
+  left: .6rem;
+  top: .8rem;
+}
+.cart-item {
+  margin-top: .5rem;
+  background-color: #fff;
+  font-size: .7rem;
+  color: #333;
+}
+.cart-item-head {
+  height: 2rem;
+  display: flex;
+  align-items: center;
+}
+.cart-item-head input[type="checkbox"] {
+  -webkit-appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border: 1px solid #555;
+  border-radius: 50%;
+}
+.cart-item-head .checkbox {
+  width: 1rem;
+  margin: 0 .8rem;
+}
+.cart-item-head .title {
+  flex: 1;
+  margin-right: 1.5rem;
+  display: flex;
+}
+.cart-item-head .title .icon {
+  background: url("https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3772681804,2416683842&fm=23&gp=0.jpg");
+  width: 0.8rem;
+  height: 0.8rem;
+  background-size: 0.8rem;
+}
+.cart-item-head .title .name {
+  margin-left: 0.7rem;
+  position: relative;
+}
+.cart-item-head .title .name-content {
+  width: 100%;
+  height: 0.8rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.cart-item-head .title .name:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  right: -0.8rem;
+  top: 0.3rem;
+  width: 0.4rem;
+  height: 0.3rem;
+  border-top: 1px solid #000;
+  border-right: 1px solid #000;
+  transform: rotate(45deg);
+}
+.cart-item-head .edit {
+  width: 2rem;
+}
