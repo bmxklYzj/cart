@@ -21,8 +21,39 @@
 
 /* 全局mixin方法 end */
 
+// 全局样式 begin
+html {
+    font-size: 5vw;
+}
 body {
     background-color: #eee;
+}
+a {
+    color: inherit;
+    text-decoration: none;
+}
+input[type="checkbox"] {
+    -webkit-appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border: 1px solid #999;
+    border-radius: 50%;
+
+    &:focus {
+        outline: 0;
+    }
+    // 直接使用淘宝的图标
+    &:checked {
+        background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAMAAAC7IEhfAAAAA3NCSVQICAjb4U/gAAAAh1BMVEX/////UAD/UAD/UAD/UAD/UAD/UAD/UAD/UAD/UAD/UAD/UAD/////+vj/9fD/8ev/8On/7OP/6d//5Nj/4NL/3s//2cj/1MH/zLX/w6f/wKP/upv/t5b/rYf/qID/oXb/mWb/jlr/jFj/dTb/cC//biz/bSr/aCP/XhT/Wg7/Vgn/UQL/UADQOR1YAAAALXRSTlMAESJEd4iZqrvM3e7///////////////////////////////////////////9INcYgAAAACXBIWXMAAAsSAAALEgHS3X78AAAAHHRFWHRTb2Z0d2FyZQBBZG9iZSBGaXJld29ya3MgQ1M26LyyjAAAARJJREFUOI2N1et2wiAMAOBApVZg7j7dzbn71Lz/8w0qcsKtJr/EfgcIDSkADdGpQaMLPahOQCtkb5CE6WWdzbGIeYXOTOncrLOMicp0YdJkq2LRcogLwXOJbK4bVo95TDvEkJGs5kvDSM7CcXF53iH6KXsO7N3RnN2hDyOgaz/9evyIvztQTfe5tBeH00DB0HLfl9au42gAPeFW+zjUMOEeduSPBiwchdvbbdtReGNtkD+lQ5LMmw3y97p0mh7Pq5PvR3efOXc89MBH6d3dX56dSl/hi5NXNedeYVoUXtacK4qszJ6qzpdZVriHzXPFjYXLvgr8y8W+rvwGwG8p7CbFb3v8Rgr81gzsZj9ulX4+0kf/qVXH8bP2GwMAAAAASUVORK5CYII=") no-repeat 0 0;
+        background-size: 1rem;
+        border: 0;
+    }
+}
+// 全局样式 end
+
+// 底部fixedBar高度为3rem
+body {
+    padding-bottom: 3rem;
 }
 .header {
     line-height: 2.5rem;
@@ -41,27 +72,20 @@ body {
         top: .8rem;
     }
 }
-
+@yellow: #f50;
 .cart-item {
     margin-top: .5rem;
     background-color: #fff;
 
     font-size: .7rem;
     color: #333;
+
     &-head {
         @height: .7rem;
         height: 2rem;
         display: flex;
         align-items: center;
 
-
-        input[type="checkbox"] {
-            -webkit-appearance: none;
-            width: 1rem;
-            height: 1rem;
-            border: 1px solid #555;
-            border-radius: 50%;
-        }
         .checkbox {
             width: 1rem;
             margin: 0 .8rem;
@@ -104,5 +128,159 @@ body {
         .edit {
             width: 2rem;
         }
+    }
+
+    &-content {
+        display: flex;
+        position: relative;
+        background-color: #f5f5f5;
+        &:last-child {
+            border-bottom: 1px solid #d9d9d9;
+        }
+
+        &:not(:first-child) {
+            margin-top: .2rem;
+        }
+
+        .checkbox {
+            margin: 2rem .8rem 0;
+        }
+        .img-wrap {
+            @width: 5rem;
+            width: @width;
+            height: @width;
+            position: relative;
+            img {
+                width: 100%;
+                position: absolute;
+                top: 50%;
+                transform: translateY(-50%);
+            }
+        }
+        .img-wrap,
+        .text-wrap {
+            margin: .3rem 0;
+        }
+        .text-wrap {
+            flex: 1;
+            line-height: 1.2;
+            margin-left: .8rem;
+            margin-right: .2rem;
+
+            p {
+                margin: 0;
+            }
+            .title {
+                color: #051b28;
+                margin-bottom: .2rem;
+                .line-camp(2);
+            }
+            .desc {
+                color: #999;
+                margin-bottom: .2rem;
+                .line-camp(2);
+            }
+            .price {
+                color: #f60;
+                position: relative;
+
+                &-now {
+                    .int {
+                        font-size: 1.2rem;
+                    }
+                }
+                &-old {
+                    color: #999;
+                    text-decoration: line-through;
+                }
+                .count-wrap {
+                    color: #333;
+                    position: absolute;
+                    top: .5rem;
+                    right: .2rem;
+                }
+            }
+        }
+
+        &-operation {
+            display: none;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+
+            .count-btn {
+                position: absolute;
+                top: 0;
+                left: 8rem;
+                right: 3rem;
+                height: 2rem;
+                background-color: #f5f5f5;
+                display: flex;
+                border-bottom: 1px solid #fff;
+                span {
+                    flex: 1;
+                    height: 2rem;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    font-size: 2em;
+                    color: #555;
+                    &:not(:last-child) {
+                        border-right: 1px solid #fff;
+                    }
+                }
+                .num {
+                    font-size: 1rem;
+                }
+            }
+            .del {
+                background-color: @yellow;
+                color: #fff;
+                width: 3rem;
+                height: 100%;
+                display: flex;
+                position: absolute;
+                right: 0;
+                justify-content: center;
+                align-items: center;
+            }
+        }
+    }
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    background-color: #f5f5f5;
+    height: 3rem;
+    width: 100%;
+
+    &-check-all,
+    &-money,
+    &-pay {
+        flex: 1;
+    }
+    .input {
+        margin: 0 .8rem;
+    }
+    .footer-money {
+        font-size: .8rem;
+        .money {
+            font-size: 1rem;
+            color: @yellow;
+            .decimal {
+                font-size: .4em;
+            }
+        }
+    }
+    &-pay {
+        color: #fff;
+        background-color: @yellow;
+        display: flex;
+        height: 100%;
+        align-items: center;
+        justify-content: center;
     }
 }
