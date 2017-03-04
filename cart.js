@@ -19,12 +19,6 @@ $(document).ready(function () {
             $.each($item, function (index, item) {
                 var num = $(item).find('.cart-item-content-operation .num').html();
                 $(item).find('.text-wrap .price .count').html(num);
-
-                // 设置价格
-                var int = $(item).find('.text-wrap .price-now .int').html();
-                var decimal = $(item).find('.text-wrap .price-now .decimal').html();
-                var price = '' + int + '.' + decimal;
-                price = Number(price);
             });
         }
     });
@@ -120,28 +114,28 @@ $(document).ready(function () {
                 var int = $(item).find('.text-wrap .price-now .int').html();
                 var decimal = $(item).find('.text-wrap .price-now .decimal').html();
                 var price = '' + int + '.' + decimal;
-                price = Number(price);
                 var cnt = $(item).find('.text-wrap .price .count').html();
                 cnt = parseInt(cnt, 10);
-                totalMoney +=  price * cnt;
+                totalMoney +=  (+price) * cnt;
             }
         });
         // 处理总额
-        if (typeof totalMoney !== 'number') {
-            totalMoney = 0.00;
-        }
+        totalMoney = totalMoney.toFixed(2);
         var res = totalMoney.toString().split('.');
         var int = res[0];
-        var decimal = Number('0.' + res[1]);
-        decimal = decimal.toFixed(2);
+        var decimal = '0.' + (res[1] ? res[1] : '00');
 
         footer.find('.footer-money .int').html(int);
-        footer.find('.footer-money .decimal').html(decimal.toString().split('.')[1]);
+        footer.find('.footer-money .decimal').html(decimal.split('.')[1]);
         footer.find('.footer-pay .total').html(itemCnt);
     }
     // 只要按下input:checkbox就触发计算函数
     $(document).delegate('input[type="checkbox"]', 'click', function () {
        calcTotalMoney();
+    });
+    // 按下选择数目的完成键也要触发计算函数
+    cartItem.delegate('.cart-item-head .edit', 'click', function () {
+        calcTotalMoney();
     });
 
 });
