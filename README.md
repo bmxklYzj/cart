@@ -1,11 +1,21 @@
-# cart
+# webpack
 
-仿淘宝购物车做的一个静态页面
+> A Vue.js project
 
-## 运行
+## Build Setup
 
-使用到的css库：normalize.css。js库 zepto.js
+``` bash
+# install dependencies
+npm install
 
-css使用less编写，先 `npm instsall` 安装less模块，然后 直接gulp运行。
+# serve with hot reload at localhost:8080
+npm run dev
 
-由于是移动端，基本用的flex布局
+# build for production with minification
+npm run build
+
+# build for production and view the bundle analyzer report
+npm run build --report
+```
+
+For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
