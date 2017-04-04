@@ -71,7 +71,6 @@ app.all(/api(\/\w+)+\.php$/, function (req, res) {
   var temp = url.split('.');
   fs.readFile(path.join(__dirname, '../', temp[0]) + '.js', 'utf-8', function (err, data) {
       if (err) {
-        console.log(1, err);
         return;
       } else {
         // res.set('Content-Type','application/json');
