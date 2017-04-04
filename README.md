@@ -23,9 +23,36 @@ For detailed explanation on how things work, checkout the [guide](http://vuejs-t
 
 # 华丽的分割线
 
-# 使用vue-cli 构建项目开发购物车
+本次开发的框架基于vue-cli，使用`vue init webpack my-project-name` 来创建的，但是默认创建的项目没有提供mock数据的功能，本项目在此基础上添加了前端mock数据的功能，可以作为 spa 项目的脚手架使用。移动端项目：基于 vue-resource 和 饿了么的 mint-ui
 
-本
+开发的一点总结：
+此脚手架是用express4作为服务器来热加载的
+1. 关于静态文件的存放：
+
+在`npm run dev` 其实执行的是 `build/dev-server.js` ，在文件有这一句`app.use(staticPath, express.static('./static'))` 其中 staticPath 是 `./static` 说明static文件夹是静态资源的存放目录。
+所以我将全局的normalize.css / 工具less文件common.less 都放在了这里
+
+```
+static
+    └── assets
+        ├── css
+        │   ├── common.less
+        │   └── normalize.css
+        ├── js
+        │   └── zepto-1.2.0.min.js
+        └── logo.png
+```
+
+然后normalize.css  在index.html中使用标签link来引入 `<link rel="stylesheet" href="./static/assets/css/normalize.css">`
+common.less则需要在每个组件中引入，如：
+
+  <!-- Add "scoped" attribute to limit CSS to this component only -->
+  <style lang="less" scoped>
+    @import '../../static/assets/css/common.less';
+
+
+
+# 使用vue-cli 构建项目开发购物车
 
 ## vue-cli 初始化项目
 vue-cli是vue官方提供的用于快速构建vue项目的脚手架，初始化项目十分有用，webpack都是配置好了的，开箱即用。
