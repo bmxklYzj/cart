@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     getDataSwipe: function () {
-      this.$http.get('/api/index_swipe.php').then(response => {
+      this.$http.get('./api/index_swipe.php').then(response => {
         console.log(response);
         this.swipeArray = response.body.data;
         this.swipeArray = this.swipeArray.slice(0, this.swipeNum);

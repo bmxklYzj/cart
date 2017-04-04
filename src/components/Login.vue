@@ -33,7 +33,7 @@ export default {
     login: function () {
       // 进行用户名和密码的校验，这里只校验非空且不少于6位
       if (this.canSubmit) {
-        this.$http.post('/api/login.php',
+        this.$http.post('./api/login.php',
           {
             userName: this.userName,
             password: this.password

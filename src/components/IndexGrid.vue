@@ -34,8 +34,8 @@ export default {
   },
   methods: {
     getDataItem: function () {
-      this.$http.get('/api/index_item.php').then(response => {
-        this.swipeArray = response.body.data;
+      this.$http.get('./api/index_item.php?startPos=0&limit=10').then(response => {
+        this.items = response.body.data;
       }, response => {
       });
     },

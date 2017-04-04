@@ -94,7 +94,7 @@ export default {
         position: 'bottom',
         duration: 2000
       });
-      this.$http.post('/api/detail_collect.php', {isCollected: !this.isCollected}).then(response => {
+      this.$http.post('./api/detail_collect.php', {isCollected: !this.isCollected}).then(response => {
         // this.swipeArray = response.body.data;
         this.isCollected = !this.isCollected;
       }, response => {
@@ -106,7 +106,7 @@ export default {
         position: 'bottom',
         duration: 2000
       });
-      this.$http.post('/api/detail_add_cart.php', {isAddedToCart: !this.isAddedToCart}).then(response => {
+      this.$http.post('./api/detail_add_cart.php', {isAddedToCart: !this.isAddedToCart}).then(response => {
         this.isAddedToCart = !this.isAddedToCart;
         // this.swipeArray = response.body.data;
         }, response => {
@@ -118,7 +118,7 @@ export default {
         position: 'bottom',
         duration: 2000
       });
-      this.$http.post('/api/detail_buy.php', {detailId: this.detailId}).then(response => {
+      this.$http.post('./api/detail_buy.php', {detailId: this.detailId}).then(response => {
         var res = response.body.data.success;
         if (res) {
           // 跳转到下单支付页面

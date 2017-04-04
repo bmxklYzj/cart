@@ -45,7 +45,7 @@ export default {
   },
   methods: {
     search: function () {
-      this.$http.post('/api/search.php', {value: this.value}).then(response => {
+      this.$http.post('./api/search.php?limit=10', {value: this.value}).then(response => {
         this.result = response.body.data;
         // this.swipeArray = response.body.data;
         }, response => {

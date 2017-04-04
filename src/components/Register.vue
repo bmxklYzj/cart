@@ -34,7 +34,7 @@ export default {
   name: 'register',
   data () {
     return {
-      url: '/api/register.php', // 表单提交的后端地址
+      url: './api/register.php', // 表单提交的后端地址
       userName: '',
       password: '',
       passwordCinfirm: '',
@@ -64,7 +64,7 @@ export default {
       // 进行用户名和密码的校验，这里只校验非空且不少于6位.验证两个密码是否相等
       if (/\w{6}/.test(this.userName) && /\w{6}/.test(this.password)) {
 
-        this.$http.post('/api/register.php',
+        this.$http.post('./api/register.php',
           {
             userName: this.userName,
             password: this.password,
