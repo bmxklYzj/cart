@@ -98,39 +98,41 @@ get：请求参数：无
 
 返回：
 
+```
+detailId: '123',  // 详情页的id
+ isCollected: false, // 之前是否收藏过
+ isAddedToCart: false, // 之前是否添加到购物车
+ detailContent: "详情页介绍详情页介绍详情页介绍详情页介绍详情页介绍详情页介绍详情页介绍详情页介绍详情页介绍详情页介绍详情页介绍",
+ picList: [
+   "https://img6.bdstatic.com/img/image/smallpic/w1.jpg",
+   "https://img6.bdstatic.com/img/image/smallpic/w2.jpg",
+   "https://img6.bdstatic.com/img/image/smallpic/guorong.jpg",
+   "https://img6.bdstatic.com/img/image/smallpic/w4.jpg",
+   "https://img6.bdstatic.com/img/image/smallpic/w5.jpg",
+   "https://img6.bdstatic.com/img/image/smallpic/w6.jpg",
+   "https://img6.bdstatic.com/img/image/smallpic/w7.jpeg",
+   "https://img6.bdstatic.com/img/image/smallpic/w8.jpg",
+   "https://img6.bdstatic.com/img/image/smallpic/w9.jpg",
+   "https://img6.bdstatic.com/img/image/smallpic/w10.jpg"
+ ],
+ comment: [{
+   "username": "yzj",
+   "commentTime": "2017-03-22",
+   "avator": "https://img6.bdstatic.com/img/image/smallpic/w1.jpg",
+   "content": "评价详情内容"
+ }, {
+   "username": "yzj2",
+   "commentTime": "2017-03-22",
+   "avator": "https://img6.bdstatic.com/img/image/smallpic/guorong.jpg",
+   "content": "评价详情内容"
+ }, {
+   "username": "yzj3",
+   "commentTime": "2017-03-22",
+   "avator": "https://img6.bdstatic.com/img/image/smallpic/w9.jpg",
+   "content": "评价详情内容"
+ }]
+```
 
-  detailId: '123',  // 详情页的id
-      isCollected: false, // 之前是否收藏过
-      isAddedToCart: false, // 之前是否添加到购物车
-      detailContent: "详情页介绍详情页介绍详情页介绍详情页介绍详情页介绍详情页介绍详情页介绍详情页介绍详情页介绍详情页介绍详情页介绍",
-      picList: [
-        "https://img6.bdstatic.com/img/image/smallpic/w1.jpg",
-        "https://img6.bdstatic.com/img/image/smallpic/w2.jpg",
-        "https://img6.bdstatic.com/img/image/smallpic/guorong.jpg",
-        "https://img6.bdstatic.com/img/image/smallpic/w4.jpg",
-        "https://img6.bdstatic.com/img/image/smallpic/w5.jpg",
-        "https://img6.bdstatic.com/img/image/smallpic/w6.jpg",
-        "https://img6.bdstatic.com/img/image/smallpic/w7.jpeg",
-        "https://img6.bdstatic.com/img/image/smallpic/w8.jpg",
-        "https://img6.bdstatic.com/img/image/smallpic/w9.jpg",
-        "https://img6.bdstatic.com/img/image/smallpic/w10.jpg"
-      ],
-      comment: [{
-        "username": "yzj",
-        "commentTime": "2017-03-22",
-        "avator": "https://img6.bdstatic.com/img/image/smallpic/w1.jpg",
-        "content": "评价详情内容"
-      }, {
-        "username": "yzj2",
-        "commentTime": "2017-03-22",
-        "avator": "https://img6.bdstatic.com/img/image/smallpic/guorong.jpg",
-        "content": "评价详情内容"
-      }, {
-        "username": "yzj3",
-        "commentTime": "2017-03-22",
-        "avator": "https://img6.bdstatic.com/img/image/smallpic/w9.jpg",
-        "content": "评价详情内容"
-      }]
 
 ## api/detail_collect.php 切换收藏
 
@@ -138,13 +140,15 @@ get：请求参数：无
 get：请求参数：`{isCollected: true/false}`
 返回：
 
-  {
-      "status": 200,
-      "error": null,
-      "data": {
-        "success": true
-      }
+```
+{
+    "status": 200,
+    "error": null,
+    "data": {
+      "success": true
     }
+  }
+```
 
 
 ## api/detail_add_cart.php 切换添加到购物车
@@ -153,13 +157,15 @@ get：请求参数：`{isCollected: true/false}`
 get：请求参数：`{isAddedToCart: true/false}`
 返回：
 
-  {
-      "status": 200,
-      "error": null,
-      "data": {
-        "success": true
-      }
+```
+{
+    "status": 200,
+    "error": null,
+    "data": {
+      "success": true
     }
+  }
+  ```
 
 ## api/detail_buy.php
 这个接口在详情页似乎是没用的
