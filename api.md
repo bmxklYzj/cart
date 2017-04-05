@@ -10,8 +10,8 @@ startPos 查询起始位置，limit需要的个数
 
 ```json
 {
-    status: 200,
-    error: null,
+    "status": 200,
+   "error": null,
     "data": [{
         "title":"title0描述0描述0描述0描述0",
         "description":"描述0描述0描述0描述0描述0描述0",
@@ -28,8 +28,8 @@ post：请求参数：
 
 ```json
 {
-  userName: this.userName,
-  password: this.password
+ "userName": this.userName,
+ "password": this.password
 }
 ```
 
@@ -52,15 +52,15 @@ post：请求参数：
 
 ```json
 {
-  userName: this.userName,
-  password: this.password,
-  passwordCinfirm: this.passwordCinfirm,
-  qqNumber: this.qqNumber,
-  privince: this.privince,
-  school: this.school,
-  studentId: this.studentId,
-  educationLevel: this.educationLevel,
-  enrollYear: this.enrollYear
+  "userName": this.userName,
+  "password": this.password,
+  "passwordCinfirm": this.passwordCinfirm,
+  "qqNumber": this.qqNumber,
+  "privince": this.privince,
+  "school": this.school,
+  "studentId": this.studentId,
+  "educationLevel": this.educationLevel,
+  "enrollYear": this.enrollYear
 }
 ```
 
@@ -72,7 +72,7 @@ post：请求参数：
 post：请求参数：
 
 ```json
-{value: this.value}
+{"value": this.value}
 ```
 
 返回：

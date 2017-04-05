@@ -144,33 +144,33 @@ vue list
   现在关键的一步是我们需要把读取的文本文件当成js先执行，然后返回json形式的mock数据。搜索知道这里可以使用nodejs内置的vm模块来执行js。只需要`data = JSON.parse(data);`换成如下两行即可：
 
   ```js
-var script = new vm.Script('javascirpt string');
-var dat = script.runInNewContext();
-```
+  var script = new vm.Script('javascirpt string');
+  var dat = script.runInNewContext();
+  ```
 
   先`new Script`创建一个实例，该函数接受的就是 js的文本字符串，然后通过 runInNewContext() 函数来执行就可返回 执行后的js了，此时我们的mock数据可以写成这样：
 
   ```js
-    (function() {
-      var data = [];
-      for (var i = 0; i < 12; i++) {
-        data.push({
-          "title": "title" + i,
-          "description": "描述" + i,
-          "image": "https://img6.bdstatic.com/img/image/smallpic/w1.jpg",
-          "url": "/detail?id=123"
-        })
-      }
+  (function() {
+   var data = [];
+   for (var i = 0; i < 12; i++) {
+     data.push({
+       "title": "title" + i,
+       "description": "描述" + i,
+       "image": "https://img6.bdstatic.com/img/image/smallpic/w1.jpg",
+       "url": "/detail?id=123"
+     })
+   }
 
-      var res = {
-        status: 200,
-        error: null,
-        "data": data
-      }
+   var res = {
+     status: 200,
+     error: null,
+     "data": data
+   }
 
-      return res;
-    })();
-```
+   return res;
+  })();
+  ```
 
   怎么，是不是很完美！
 
