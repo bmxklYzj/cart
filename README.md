@@ -96,7 +96,7 @@ vue list
   这时候需要把get、post等请求先打到本地的mock数据中，
   思路就是把所有api打头 .php结尾（如：`"api/xxx.php"`）的请求 都定向到mock文件夹中对应xxx.js文件中去
 
-  ```
+  ```js
   // serve pure static assets
   var staticPath = path.posix.join(config.dev.assetsPublicPath, config.dev.assetsSubDirectory)
   app.use(staticPath, express.static('./static'))
@@ -127,7 +127,7 @@ vue list
 
   然后在src的根目录创建mock目录，里面写上mock数据（json）就好了。形如：
 
-  ```
+  ```json
     {
         "status": 200,
         "error": null,
@@ -143,14 +143,14 @@ vue list
 
   现在关键的一步是我们需要把读取的文本文件当成js先执行，然后返回json形式的mock数据。搜索知道这里可以使用nodejs内置的vm模块来执行js。只需要`data = JSON.parse(data);`换成如下两行即可：
 
-  ```
+  ```js
 var script = new vm.Script('javascirpt string');
 var dat = script.runInNewContext();
 ```
 
   先`new Script`创建一个实例，该函数接受的就是 js的文本字符串，然后通过 runInNewContext() 函数来执行就可返回 执行后的js了，此时我们的mock数据可以写成这样：
 
-  ```
+  ```js
     (function() {
       var data = [];
       for (var i = 0; i < 12; i++) {
@@ -170,7 +170,7 @@ var dat = script.runInNewContext();
 
       return res;
     })();
-    ```
+```
 
   怎么，是不是很完美！
 

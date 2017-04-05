@@ -8,7 +8,7 @@ startPos 查询起始位置，limit需要的个数
 
 返回：
 
-```
+```json
 {
     status: 200,
     error: null,
@@ -26,7 +26,7 @@ startPos 查询起始位置，limit需要的个数
 请求：
 post：请求参数：
 
-```
+```json
 {
   userName: this.userName,
   password: this.password
@@ -35,7 +35,7 @@ post：请求参数：
 
 返回：
 
-```
+```json
 {
     "status": 200,
     "error": null,
@@ -50,7 +50,7 @@ post：请求参数：
 请求：
 post：请求参数：
 
-```
+```json
 {
   userName: this.userName,
   password: this.password,
@@ -71,13 +71,13 @@ post：请求参数：
 请求：url中的query为?limit=10 表示返回10个
 post：请求参数：
 
-```
+```json
 {value: this.value}
 ```
 
 返回：
 
-```
+```json
 {
     "status": 200,
     "error": null,
@@ -98,7 +98,7 @@ get：请求参数：无
 
 返回：
 
-```
+```json
 detailId: '123',  // 详情页的id
  isCollected: false, // 之前是否收藏过
  isAddedToCart: false, // 之前是否添加到购物车
@@ -140,7 +140,7 @@ detailId: '123',  // 详情页的id
 get：请求参数：`{isCollected: true/false}`
 返回：
 
-```
+```json
 {
     "status": 200,
     "error": null,
@@ -157,7 +157,7 @@ get：请求参数：`{isCollected: true/false}`
 get：请求参数：`{isAddedToCart: true/false}`
 返回：
 
-```
+```json
 {
     "status": 200,
     "error": null,
